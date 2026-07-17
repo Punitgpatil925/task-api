@@ -1,54 +1,146 @@
-# Task API
+# 🚀 Task API
 
-A simple CRUD API built using FastAPI.
+A RESTful Task Management API built using **FastAPI**, **PostgreSQL**, **SQLAlchemy**, and **Docker**.
 
-## Features
+## 📌 Features
 
 - Create a Task
-- Read All Tasks
-- Read Task by ID
-- Update a Task
-- Delete a Task
-- Interactive Swagger Documentation
+- Get All Tasks
+- Get Task by ID
+- Update Task
+- Delete Task
+- PostgreSQL Database
+- Dockerized Application
+- Layered Architecture (Repository + Service)
 
-## Technologies
+---
 
-- Python
+## 🛠️ Tech Stack
+
+- Python 3.12
 - FastAPI
-- Uvicorn
+- SQLAlchemy
+- PostgreSQL
+- Docker
+- Docker Compose
 
-## Installation
+---
+
+## 📂 Project Structure
+
+```
+TaskAPI/
+├── app/
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── repository.py
+│   ├── postgres_repository.py
+│   └── service.py
+│
+├── sql/
+│   └── init.sql
+│
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
 
 ```bash
-pip install fastapi uvicorn
+git clone https://github.com/Punitgpatil925/task-api.git
+cd task-api
 ```
 
-## Run
+---
+
+### Create Environment File
+
+Create a `.env` file in the project root.
+
+```
+DATABASE_URL=postgresql://postgres:password@db:5432/taskdb
+```
+
+---
+
+### Run with Docker
 
 ```bash
-uvicorn main:app --reload
+docker compose up --build
 ```
 
-## Swagger UI
+---
 
-Open:
+## 📖 API Documentation
+
+Swagger UI
 
 ```
-http://127.0.0.1:8000/docs
+http://localhost:8000/docs
 ```
 
-## API Endpoints
+---
+
+## 📌 Available Endpoints
 
 | Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | / | Home |
-| GET | /health | Health Check |
-| GET | /tasks | Get All Tasks |
-| GET | /tasks/{task_id} | Get Task by ID |
-| POST | /tasks | Create Task |
-| PUT | /tasks/{task_id} | Update Task |
-| DELETE | /tasks/{task_id} | Delete Task |
+|---------|----------|-------------|
+| GET | `/tasks` | Get all tasks |
+| GET | `/tasks/{task_id}` | Get task by ID |
+| POST | `/tasks` | Create a task |
+| PUT | `/tasks/{task_id}` | Update a task |
+| DELETE | `/tasks/{task_id}` | Delete a task |
 
-## Author
+---
 
-Punit Patil
+## 🧪 Example Request
+
+### Create Task
+
+```json
+{
+  "title": "Learn Docker"
+}
+```
+
+### Response
+
+```json
+{
+  "id": 1,
+  "title": "Learn Docker",
+  "done": false
+}
+```
+
+---
+
+## 🐳 Docker
+
+Build and start the application:
+
+```bash
+docker compose up --build
+```
+
+Stop containers:
+
+```bash
+docker compose down
+```
+
+---
+
+## 👨‍💻 Author
+
+**Punit Patil**
+
